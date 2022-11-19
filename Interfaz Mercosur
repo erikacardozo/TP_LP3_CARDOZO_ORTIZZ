@@ -1,0 +1,10 @@
+public interface Mercosur{
+	//GET - trae los impuestos del IVA
+	getIVA();
+
+	//GET - trae los impuestos del IRP
+	getIRP();
+
+	//calcula el descuento al ser del mercosur
+	getDescuento(); 
+}
