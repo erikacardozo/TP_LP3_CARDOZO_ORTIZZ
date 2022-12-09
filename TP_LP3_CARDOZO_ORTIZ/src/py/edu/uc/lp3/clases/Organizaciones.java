@@ -23,4 +23,5 @@ public class Organizaciones {
 		this.descripcion = descripcion;
 	}
 	
+	
 }

@@ -1,4 +1,5 @@
 package py.edu.uc.lp3.utilidades;
+
 import py.edu.uc.lp3.clases.Despachante;
 import py.edu.uc.lp3.clases.Impuestos;
 import py.edu.uc.lp3.clases.Mercaderia;
@@ -13,4 +14,5 @@ public class GenerarPresupuesto {
 		// TODO Auto-generated method stub
 		System.out.println("Presupuesto generado " );
 	}
+
 }

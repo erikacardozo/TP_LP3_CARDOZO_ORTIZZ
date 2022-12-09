@@ -29,6 +29,12 @@ public class Impuestos {
 		this.idImpuesto = idImpuesto;
 	}
 
+	
 
 	
+
+	public void calcularImpuesto(String tipoProducto) {
+		//para calcular impuesto, dsp podemos retornar el impuesto
+		
+	}
 }
