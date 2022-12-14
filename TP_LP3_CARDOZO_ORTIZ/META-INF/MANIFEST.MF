@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TP_LP3_CARDOZO_ORTIZ
+Bundle-SymbolicName: TP_LP3_CARDOZO_ORTIZ
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: .,
+ py.edu.uc.lp3.clases,
+ py.edu.uc.lp3.interfaces,
+ py.edu.uc.lp3.utilidades
