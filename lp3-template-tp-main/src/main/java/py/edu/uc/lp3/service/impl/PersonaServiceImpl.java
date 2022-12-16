@@ -78,7 +78,7 @@ public class PersonaServiceImpl implements PersonaService {
 	@Override
 	public void saveList(List<Persona> personas) throws InscripcionException {
 		// EquipoService equipoServ = new EquipoService();
-		for (Persona aGuardar : personas) {
+		for (Persona aGuardar : personas) { //recorre la (bucle foreach)lista de personas para verificar si el nro de cedula esta correcto
 			if (aGuardar.getNumeroCedula() < 0) {
 				InscripcionException inscripcionException = new InscripcionException(// System.out.println(
 						"Numero de cedula invalido: " + aGuardar.getNumeroCedula());

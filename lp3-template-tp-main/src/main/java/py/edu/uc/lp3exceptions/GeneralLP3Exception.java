@@ -2,6 +2,11 @@ package py.edu.uc.lp3exceptions;
 
 public class GeneralLP3Exception extends RuntimeException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public GeneralLP3Exception() {
 		// TODO Auto-generated constructor stub
 	}
