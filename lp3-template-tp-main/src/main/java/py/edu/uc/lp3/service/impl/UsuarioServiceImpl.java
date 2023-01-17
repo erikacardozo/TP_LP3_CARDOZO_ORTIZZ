@@ -80,8 +80,8 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	/*
-	 * Funcion para actualzar un usuario con persistencia
-	 * Parametros: Long id : el id del usuario que eliminaremos
+	 * Funcion para actualizar un usuario con persistencia
+	 * Parametros: Long id : el id del usuario que actualizaremos
 	 * Usuario usuarios : el usuario que guardaremos 
 	 * Retorno: usuarioRepository.save(_usuarios): guardar los nuevos datos del usuario
 	 */

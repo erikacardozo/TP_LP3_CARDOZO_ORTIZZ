@@ -1,14 +1,14 @@
 package py.edu.uc.lp3.clases;
 
 public class Organizaciones {
-	private Integer IDOrganizacion;
+	private Integer IDOrg;
 	private String tipoDeOrganizacion;
 	private String descripcion;
 	public Integer getIDOrganizacion() {
-		return IDOrganizacion;
+		return IDOrg;
 	}
 	public void setIDOrganizacion(Integer iDOrganizacion) {
-		IDOrganizacion = iDOrganizacion;
+		IDOrg = iDOrganizacion;
 	}
 	public String getTipoDeOrganizacion() {
 		return tipoDeOrganizacion;

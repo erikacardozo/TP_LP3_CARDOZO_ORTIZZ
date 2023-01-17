@@ -6,6 +6,7 @@ public class ApiPaths {
 
 	private static final String BASE_API = "/api/lp3";
 	public static final String USUARIO = BASE_API + "/usuario";
+	public static final String ORGANIZACIONES = BASE_API + "/organizaciones";
 	public static final String PERSONA = BASE_API + "/persona";
 
 	//	
