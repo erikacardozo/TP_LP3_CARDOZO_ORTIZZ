@@ -38,9 +38,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * Retorno: ninguno
 	 */
 	@Override
-	public void save(Usuario usuarios) {
+	public Usuario save(Usuario usuarios) {
 		try {
-			usuarioRepository.save(usuarios);
+			return usuarioRepository.save(usuarios);
 		}catch(Error error) {
 			System.out.println(error);
 			throw new GeneralLP3Exception("Error inesperado al guardar usuario.");
@@ -54,7 +54,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * Retorno: usuarioRepository.findByRol(rol): la lista de todos los usuarios con ese rol
 	 */
 	@Override
-	public List<Usuario> findByRol(String rol) {
+	public List<Usuario> findByRol(String rol) {//agregar una vforma de encontrar ya sea si es aduanera/o
 		// TODO Auto-generated method stub
 		try {
 			return usuarioRepository.findByRol(rol);

@@ -72,10 +72,10 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 	 *  de la organizacion
 	 */
 	@Override
-	public Organizaciones updateOrg(Long IDOrganizacion, Organizaciones organizaciones) {
+	public Organizaciones updateOrg(Long IDOrg, Organizaciones organizaciones) {
 		// TODO Auto-generated method stub
-		if(organizacionesRepository.findById(IDOrganizacion).isPresent()) {
-			Organizaciones _organizaciones = organizacionesRepository.findById(IDOrganizacion).get();
+		if(organizacionesRepository.findById(IDOrg).isPresent()) {
+			Organizaciones _organizaciones = organizacionesRepository.findById(IDOrg).get();
 
 			_organizaciones.setTipoDeOrganizacion(organizaciones.getTipoDeOrganizacion());
 			_organizaciones.setDescripcion(organizaciones.getDescripcion());
@@ -89,12 +89,12 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 	 * Retorno: ninguno
 	 */
 	@Override
-	public void deleteOrg(Long IDOrganizacion) {
+	public void deleteOrg(Long IDOrg) {
 		// TODO Auto-generated method stub
-		if (organizacionesRepository.existsById(IDOrganizacion)){
-			organizacionesRepository.deleteById(IDOrganizacion);
+		if (organizacionesRepository.existsById(IDOrg)){
+			organizacionesRepository.deleteById(IDOrg);
 		}else {
-			throw new GeneralLP3Exception("Error.No se encuentran organizaciones con id: " + IDOrganizacion);
+			throw new GeneralLP3Exception("Error.No se encuentran organizaciones con id: " + IDOrg);
 		}
 		
 	}

@@ -1,14 +1,21 @@
 package py.edu.uc.lp3.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Organizaciones {
+public class Organizaciones implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(unique = true, nullable = false)
 	private Long IDOrg;
 	private String tipoDeOrganizacion;
 	private String descripcion;

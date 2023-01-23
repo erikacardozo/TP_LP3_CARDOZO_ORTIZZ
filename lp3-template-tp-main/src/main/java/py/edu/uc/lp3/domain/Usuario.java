@@ -5,26 +5,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
+	//todos se van a llamar id punto
 	private Long id;
-	//@NotEmpty
-	private String userName;
-	//@notEmpty
+	protected String userName;
 	private String rol;
-	//@Email
 	private String email;
-	private String passwd;
+	protected String passwd;
+	
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Usuario (String userName, String rol, String email, String passwd) {
 		super();
 		this.userName=userName;

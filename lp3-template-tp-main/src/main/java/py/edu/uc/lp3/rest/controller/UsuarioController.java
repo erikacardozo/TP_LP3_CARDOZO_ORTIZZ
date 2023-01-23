@@ -33,8 +33,8 @@ public class UsuarioController {
 	
 	//Llama a la funcion para agregar una usuarios por metodo POST
 	@PostMapping()
-	public void add(@RequestBody Usuario usuarios) {
-		usuarioService.save(usuarios);
+	public Usuario add(@RequestBody Usuario usuarios) {
+		return usuarioService.save(usuarios);
 	}
 	
 	/*Llama a la funcion para ver a todos los usuarios 
