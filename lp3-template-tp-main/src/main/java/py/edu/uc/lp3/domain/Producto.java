@@ -27,7 +27,7 @@ public class Producto implements Serializable {
 	protected String origen; // donde se creo, asi se sabe a que convenio pertenece
 	protected String destino;
 	
-	
+
 
 	public Producto(Long id, Long cantidad, Long precio, Float peso, String tipoProducto, String origen,
 			String destino) {
@@ -136,6 +136,7 @@ public class Producto implements Serializable {
 		return serialVersionUID;
 	}
 
-	
+
+
 
 }

@@ -43,7 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 			return usuarioRepository.save(usuarios);
 		}catch(Error error) {
 			System.out.println(error);
-			throw new GeneralLP3Exception("Error inesperado al guardar usuario.");
+			throw new GeneralLP3Exception("Error inesperado al guardar impuesto.");
 		}
 		
 	}
