@@ -3,15 +3,12 @@ package py.edu.uc.lp3.service.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import py.edu.uc.lp3.domain.Impuesto;
 import py.edu.uc.lp3.domain.Producto;
 import py.edu.uc.lp3.repository.ProductoRepository;
-import py.edu.uc.lp3.repository.TipoImpuestoRepository;
 import py.edu.uc.lp3.service.ProductoService;
 import py.edu.uc.lp3exceptions.GeneralLP3Exception;
 
@@ -20,9 +17,12 @@ public class ProductoServiceImpl implements ProductoService{
 	@Autowired
 	private ProductoRepository productoRepository;
 
-	//@Autowired
-	//private TipoImpuestoRepository tipoImpuestoRepository;
-
+	/*
+	 * Funcion para obtener una lista de todos los productos 
+	 * Parametros: ninguno
+	 * Retorno: List<Producto> : la lista de todos los productos
+	 */
+	
 	@Override
 	public List<Producto> findAllProducts() {
 		// TODO Auto-generated method stub
@@ -35,6 +35,11 @@ public class ProductoServiceImpl implements ProductoService{
 		return productos;
 	}
 
+	/* Funcion para guardar un producto
+	 * Parametros: Producto producto : el producto que guardaremos  
+	 * Retorno: producto guardado
+	 */
+	
 	@Override
 	public Producto save(Producto producto) {
 		// TODO Auto-generated method stub
@@ -43,41 +48,38 @@ public class ProductoServiceImpl implements ProductoService{
 			
 		}catch(Error error) {
 			System.out.println(error);
-			throw new GeneralLP3Exception("Error inesperado al guardar usuario.");
+			throw new GeneralLP3Exception("Error inesperado al guardar producto.");
 		}
 	}
 
-
+	/* Funcion para eliminar un producto
+	 * Parametros: Long id: el id del producto que eliminaremos  
+	 * Retorno: ninguno
+	 */
+	
 	@Override
 	public void deleteProductById(Long id) {
 		// TODO Auto-generated method stub
 		if (productoRepository.existsById(id)){
 			productoRepository.deleteById(id);
 		}else {
-			throw new GeneralLP3Exception("Error.No se encuentran usuarios con id: " + id);
+			throw new GeneralLP3Exception("Error.No se encuentran productos con id: " + id);
 		}
 	}
 	
-
+	/*
+	 * Funcion para actualizar un producto 
+	 * Parametros: Long id : el id del producto que actualizaremos
+	 * Retorno: productoRepository.save(Existente) : guardar los nuevos datos
+	 *  del producto
+	 */
 	@Override
-	public Producto updateProducto(Producto productos) {
+	public Producto updateProducto(Long id,Producto productos) {
 		/// TODO Auto-generated method stub
-		/*if(productoRepository.findById(id).isPresent()) {
-			Producto _producto = productoRepository.findById(id).get();
-			_producto.setCantidad(_producto.getCantidad());
-			_producto.setPrecio(_producto.getPrecio());
-			_producto.setPeso(_producto.getPeso());
-			_producto.setTipoProducto(_producto.getTipoProducto());
-			_producto.setOrigen(_producto.getOrigen());
-			_producto.setDestino(_producto.getDestino());
-			_producto.setImpuestoo(_producto.getImpuestoo());
-			///return productoRepository.save(productos)
-			 * */
-		if(productos.getId() != null && productoRepository.existsById(productos.getId())) {
-			
-			Optional<Producto> recuperarUsuario = productoRepository.findById(productos.getId());
-			Producto Existente = (Producto) recuperarUsuario.get();
-			
+		//if(productos.getId() != null && productoRepository.existsById(productos.getId())) {
+		if(productoRepository.findById(id).isPresent()) {
+			Producto Existente = productoRepository.findById(id).get();
+
 			if(productos.getCantidad()!=null) {
 				Existente.setCantidad(productos.getCantidad());
 			}
@@ -96,20 +98,17 @@ public class ProductoServiceImpl implements ProductoService{
 			if(!productos.getDestino().isEmpty()) {
 				Existente.setDestino(productos.getDestino());
 			}
-		/*	if(productos.getImpuestoo() != null || ! productos.getImpuestoo().isEmpty()) {
-				Existente.setImpuestoo(productos.getImpuestoo());
-			}
-			
-			if(productos.getTransportee() != null || ! productos.getTransportee().isEmpty()) {
-				Existente.setTransportee(productos.getTransportee());
-			}*/
+	
 			return productoRepository.save(Existente);
 		}else {
-			throw new GeneralLP3Exception("Error inesperado al actualizar usuario.");
+			throw new GeneralLP3Exception("Error inesperado al actualizar producto.");
 		}
 	}
 
-
+	/* listar por tipo producto
+	 * parametro: string tipoProducto
+	 * retorna: lista de esos tipo de producto */
+	
 	@Override
 	public List<Producto> findBytipoProducto(String tipoProducto) {
 		// TODO Auto-generated method stub
@@ -117,7 +116,7 @@ public class ProductoServiceImpl implements ProductoService{
 			return productoRepository.findBytipoProducto(tipoProducto);
 		}catch(Error error){
 			System.out.println(error);
-			throw new GeneralLP3Exception("Error. No se encuentran usuarios con este rol" + tipoProducto);
+			throw new GeneralLP3Exception("Error. No se encuentran productos con este tipoProducto" + tipoProducto);
 		}
 	}
 

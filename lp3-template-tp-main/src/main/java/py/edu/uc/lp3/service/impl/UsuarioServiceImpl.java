@@ -37,7 +37,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	
 	/* Funcion para guardar un usuario con persistencia
 	 * Parametros: Usuario usuarios : el usuario que guardaremos  
-	 * Retorno: ninguno
+	 * Retorno: usuario guardado
 	 */
 	@Override
 	public Usuario save(Usuario usuarios) throws ExceptionText {
@@ -57,7 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * Retorno: usuarioRepository.findByRol(rol): la lista de todos los usuarios con ese rol
 	 */
 	@Override
-	public List<Usuario> findByRol(String rol) {//agregar una vforma de encontrar ya sea si es aduanera/o
+	public List<Usuario> findByRol(String rol) {
 		// TODO Auto-generated method stub
 		try {
 			return usuarioRepository.findByRol(rol);
@@ -93,10 +93,18 @@ public class UsuarioServiceImpl implements UsuarioService{
 		// TODO Auto-generated method stub 
 		 if(usuarioRepository.findById(id).isPresent()) {
 			Usuario _usuarios = usuarioRepository.findById(id).get();
-			_usuarios.setUserName(usuarios.getUserName());
-			_usuarios.setRol(usuarios.getRol());
-			_usuarios.setEmail(usuarios.getEmail());
-			_usuarios.setPasswd(usuarios.getPasswd());
+			if(!usuarios.getUserName().isEmpty()) {
+				_usuarios.setUserName(usuarios.getUserName());
+			}
+			if(!usuarios.getRol().isEmpty()) {
+				_usuarios.setRol(usuarios.getRol());
+			}
+			if(!usuarios.getEmail().isEmpty()) {
+				_usuarios.setEmail(usuarios.getEmail());
+			}
+			if(!usuarios.getPasswd().isEmpty()) {
+				_usuarios.setPasswd(usuarios.getPasswd());
+		 	}
 			verificarUsuario.validarNombre(_usuarios);
 			return usuarioRepository.save(_usuarios); 
 		}else {

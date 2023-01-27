@@ -1,6 +1,5 @@
 package py.edu.uc.lp3.domain;
 
-import py.edu.uc.lp3.domain.Usuario;
 
 public class Despachante extends Usuario{
 	Long honorarios=500000l;

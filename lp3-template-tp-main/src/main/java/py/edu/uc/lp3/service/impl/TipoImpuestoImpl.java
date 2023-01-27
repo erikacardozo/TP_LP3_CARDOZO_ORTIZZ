@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import py.edu.uc.lp3.domain.Impuesto;
-import py.edu.uc.lp3.domain.Usuario;
 import py.edu.uc.lp3.repository.TipoImpuestoRepository;
 import py.edu.uc.lp3.service.TipoImpuestoService;
 import py.edu.uc.lp3exceptions.GeneralLP3Exception;
@@ -18,6 +17,9 @@ public class TipoImpuestoImpl implements TipoImpuestoService{
 	
 	@Autowired
 	private TipoImpuestoRepository tipoImpuestoRepository;
+	
+	
+	/*listar impuestos*/
 	
 	@Override
 	public List<Impuesto> findAll() {
@@ -29,6 +31,9 @@ public class TipoImpuestoImpl implements TipoImpuestoService{
 		return impuestos;
 	}
 
+	/*eliminar impuesto por id
+	 * parametro: id a eliminar
+	 * retorno: ninguno */
 	@Override
 	public void deleteImpuestoById(Long id) {
 		if (tipoImpuestoRepository.existsById(id)){
@@ -38,7 +43,10 @@ public class TipoImpuestoImpl implements TipoImpuestoService{
 		}
 		
 	}
-
+	
+	/*guardamos impuesto nuevo
+	 * retorna: impuesto creado */
+	
 	@Override
 	public Impuesto save(Impuesto impuesto) {
 		try {
@@ -50,13 +58,18 @@ public class TipoImpuestoImpl implements TipoImpuestoService{
 		}
 	}
 
+	/*actualizar impuesto por id, si no es null, actualiza con los datos nuevos
+	 * retorna impuesto actualizado*/
 
-	@Override
 	public Impuesto updateImpuesto (long id, Impuesto impuesto) {
 		if(tipoImpuestoRepository.findById(id).isPresent()) {
 			Impuesto _impuesto = tipoImpuestoRepository.findById(id).get();
-			_impuesto.setNombre(impuesto.getNombre());
-			_impuesto.setPorcentaje(impuesto.getPorcentaje());	
+			if(!impuesto.getNombre().isEmpty()) {
+				_impuesto.setNombre(impuesto.getNombre());
+			}
+			if(impuesto.getPorcentaje()!=null) {
+				_impuesto.setPorcentaje(impuesto.getPorcentaje());	
+			}
 			return tipoImpuestoRepository.save(_impuesto); 
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al actualizar impuesto.");

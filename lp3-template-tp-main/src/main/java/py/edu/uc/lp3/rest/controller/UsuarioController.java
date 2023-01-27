@@ -23,16 +23,19 @@ import py.edu.uc.lp3exceptions.ExceptionText;
 @RestController
 @RequestMapping(ApiPaths.USUARIO)
 public class UsuarioController {
+	
 	@Autowired
-  
 	private UsuarioService usuarioService;
+	
 	//Llama a la funcion para ver a todos los usuarios por metodo GET
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Usuario> list() {
 		return usuarioService.findAll();
 	}
 	
 	//Llama a la funcion para agregar una usuarios por metodo POST
+	
 	@PostMapping()
 	public Usuario add(@RequestBody Usuario usuarios) throws ExceptionText {
 		return usuarioService.save(usuarios);
@@ -41,6 +44,7 @@ public class UsuarioController {
 	/*Llama a la funcion para ver a todos los usuarios 
 	 * de un rol(despachante,auditor,transportista)
 	 */
+	
 	@RequestMapping(value = "/{rol}", method = RequestMethod.GET)
     public List<Usuario> listR(@PathVariable("rol") String rol){
         return usuarioService.findByRol(rol);
@@ -49,13 +53,15 @@ public class UsuarioController {
 	/*Llama a la funcion para eliminar un usuario por su numero de id 
 	 *  por metodo DELETE
 	 */
+	
 	@DeleteMapping("/{id}")
 	public void deleteUserById(@PathVariable long id) {
 		usuarioService.deleteUserById(id);
 	}
-	/*Llama a la funcion para actualizar o cambiar los datos de un usuario 
+	/*Llama a la funcion para actualizar los datos de un usuario 
 	 * por su numero de id por metodo PUT
 	 */
+	
 	@PutMapping("/{id}")
 	  public ResponseEntity<Usuario> updateUser(@PathVariable("id") long id, @RequestBody Usuario usuario) throws ExceptionText {
 	    return new ResponseEntity<>(usuarioService.updateUser(id,usuario),HttpStatus.OK);

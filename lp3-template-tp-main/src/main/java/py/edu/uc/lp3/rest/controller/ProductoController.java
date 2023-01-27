@@ -31,12 +31,12 @@ public class ProductoController {
 		return productoService.findAllProducts();
 	}
 	
-	//Llama a la funcion para agregar una productos por metodo POST
+	//Llama a la funcion para agregar un producto por metodo POST
 	@PostMapping()
 	public Producto add(@RequestBody Producto producto) {
 		return productoService.save(producto);
 	}
-	/*Llama a la funcion para ver a todos los tipos de productos diferentes
+	/*Llama a la funcion para ver una lista por tipos de productos 
 	 */
 	@RequestMapping(value = "/{tipoProducto}", method = RequestMethod.GET)
 	public List<Producto> listProducts(@PathVariable("tipoProducto") String tipoProducto){
@@ -50,11 +50,11 @@ public class ProductoController {
 		productoService.deleteProductById(id);
 	}
 
-	/*Llama a la funcion para actualizar o cambiar los datos de un producto
+	/*Llama a la funcion para actualizar los datos de un producto
 	 * por su numero de id por metodo PUT
 	 */
-	@PutMapping()
-	public ResponseEntity<Producto> updateProduct(@RequestBody Producto productos) {
-		return new ResponseEntity<>(productoService.updateProducto(productos),HttpStatus.OK);
+	@PutMapping("/{id}")
+	public ResponseEntity<Producto> updateProduct(@PathVariable("id") long id, @RequestBody Producto productos) {
+		return new ResponseEntity<>(productoService.updateProducto(id,productos),HttpStatus.OK);
 	}
 }

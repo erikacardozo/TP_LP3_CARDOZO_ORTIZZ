@@ -26,20 +26,20 @@ public class OrganizacionesController {
 	private OrganizacionesService organizacionesService;
 	
 	@PostMapping
-	public void add(@RequestBody Organizaciones organizaciones) {
+	public void add(@RequestBody Organizaciones organizaciones) { //envia organizacion a save para guardar
 		organizacionesService.save(organizaciones);
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)//para listar todas las organizaciones
 	public List<Organizaciones> list() {
 		return organizacionesService.findAll();
 	}
 	
-	@RequestMapping(value = "/{tipo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{tipo}", method = RequestMethod.GET) //para listar organizacion por tipo
     public List<Organizaciones> listO(@PathVariable("tipo") String tipoDeOrganizacion){
         return organizacionesService.findByTipoDeOrganizacion(tipoDeOrganizacion);
     }
-	/*Llama a la funcion para eliminar una organizacion por su numero de id 
+	/* para eliminar una organizacion por su numero de id 
 	 *  por metodo DELETE
 	 */
 	@DeleteMapping("/{idOrg}")

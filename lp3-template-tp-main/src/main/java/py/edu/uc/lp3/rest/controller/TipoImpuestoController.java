@@ -25,26 +25,30 @@ public class TipoImpuestoController {
 	@Autowired
   
 	private TipoImpuestoService tipoImpuestoService;
-	//Llama a la funcion para ver a todos los usuarios por metodo GET
+	
+	//Llama a la funcion para ver a todos los impuestos por metodo GET
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Impuesto> list() {
 		return tipoImpuestoService.findAll();
 	}
 	
-	//Llama a la funcion para agregar una usuarios por metodo POST
+	//Llama a la funcion para agregar impuestos por metodo POST
+	
 	@PostMapping()
 	public Impuesto add(@RequestBody Impuesto impuesto) {
 		return tipoImpuestoService.save(impuesto);
 	}
 	
-	/*Llama a la funcion para eliminar un usuario por su numero de id 
+	/*Llama a la funcion para eliminar un impuesto por su numero de id 
 	 *  por metodo DELETE
 	 */
+	
 	@DeleteMapping("/{id}")
 	public void deleteImpestoById(@PathVariable long id) {
 		tipoImpuestoService.deleteImpuestoById(id);
 	}
-	/*Llama a la funcion para actualizar o cambiar los datos de un usuario 
+	/*Llama a la funcion para actualizar o cambiar los datos de un impuesto 
 	 * por su numero de id por metodo PUT
 	 */
 	@PutMapping("/{id}")

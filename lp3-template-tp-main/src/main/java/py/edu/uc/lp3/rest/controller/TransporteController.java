@@ -25,26 +25,30 @@ public class TransporteController {
 	@Autowired
   
 	private TransporteService transporteService;
-	//Llama a la funcion para ver a todos los usuarios por metodo GET
+	
+	//Llama a la funcion para ver a todos los transportes por metodo GET
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Transporte> list() {
 		return transporteService.findAll();
 	}
 	
-	//Llama a la funcion para agregar una usuarios por metodo POST
+	
+	//Llama a la funcion para agregar transporte por metodo POST
+	
 	@PostMapping()
 	public Transporte add(@RequestBody Transporte transporte) {
 		return transporteService.save(transporte);
 	}
 	
-	/*Llama a la funcion para eliminar un usuario por su numero de id 
+	/*Llama a la funcion para eliminar un transporte por su numero de id 
 	 *  por metodo DELETE
 	 */
 	@DeleteMapping("/{id}")
-	public void deleteImpestoById(@PathVariable long id) {
+	public void deleteTransportById(@PathVariable long id) {
 		transporteService.deleteTransporteById(id);
 	}
-	/*Llama a la funcion para actualizar o cambiar los datos de un usuario 
+	/*Llama a la funcion para actualizar los datos de un impuesto 
 	 * por su numero de id por metodo PUT
 	 */
 	@PutMapping("/{id}")

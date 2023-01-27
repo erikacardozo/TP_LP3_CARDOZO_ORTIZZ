@@ -17,18 +17,19 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 	@Autowired
 	private OrganizacionesRepository organizacionesRepository;
 	@Override
-	/* Funcion para guardar una organizacion con persistencia
+	/* Funcion para guardar una organizacion
 	 * Parametros: Organizaciones organizaciones : la organizacion que guardaremos  
-	 * Retorno: ninguno
+	 * Retorno: organizacion guardada
 	 */
-	public void save(Organizaciones organizaciones) {
+	public Organizaciones save(Organizaciones organizaciones) {
 		// TODO Auto-generated method stub
 		try {
-			organizacionesRepository.save(organizaciones);
+			return (organizacionesRepository.save(organizaciones));
 		}catch(Error error) {
 			System.out.println(error);
 			throw new GeneralLP3Exception("Error inesperado al guardar organizaciones.");
 		}
+		
 		
 		
 		
@@ -76,15 +77,18 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 		// TODO Auto-generated method stub
 		if(organizacionesRepository.findById(IDOrg).isPresent()) {
 			Organizaciones _organizaciones = organizacionesRepository.findById(IDOrg).get();
-
-			_organizaciones.setTipoDeOrganizacion(organizaciones.getTipoDeOrganizacion());
-			_organizaciones.setDescripcion(organizaciones.getDescripcion());
+			if(!organizaciones.getTipoDeOrganizacion().isEmpty()) {
+				_organizaciones.setTipoDeOrganizacion(organizaciones.getTipoDeOrganizacion());
+			}
+			if(!organizaciones.getDescripcion().isEmpty()) {
+				_organizaciones.setDescripcion(organizaciones.getDescripcion());
+			}
 			return organizacionesRepository.save(_organizaciones);
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al actualizar organizacion.");
 		}
 	}
-	/* Funcion para eliminar un usuario con persistencia
+	/* Funcion para eliminar una organizacion
 	 * Parametros: Long IDOrganizacion: el id de la organizacion que eliminaremos  
 	 * Retorno: ninguno
 	 */

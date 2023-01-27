@@ -18,6 +18,8 @@ public class TransporteImpl implements TransporteService{
 	@Autowired
 	private TransporteRepository transporteRepository;
 	
+	/*listar todos los transportes*/
+	
 	@Override
 	public List<Transporte> findAll() {
 		List<Transporte> Transportes = new ArrayList<>();
@@ -28,6 +30,8 @@ public class TransporteImpl implements TransporteService{
 		return Transportes;
 	}
 
+	/*eliminar por id un transporte*/
+	
 	@Override
 	public void deleteTransporteById(Long id) {
 		if (transporteRepository.existsById(id)){
@@ -38,6 +42,8 @@ public class TransporteImpl implements TransporteService{
 		
 	}
 
+	/*guardamos transporte*/
+	
 	@Override
 	public Transporte save(Transporte transporte) {
 		try {
@@ -48,15 +54,23 @@ public class TransporteImpl implements TransporteService{
 			throw new GeneralLP3Exception("Error inesperado al guardar Transporte.");
 		}
 	}
-
-
+	
+	/*actualizamos transporte por id en caso de que no sea null los datos agregados
+	 * retona: transporte actualizado*/ 
+	
 	@Override
 	public Transporte updateTransporte (long id, Transporte transporte) {
 		if(transporteRepository.findById(id).isPresent()) {
 			Transporte _Transporte = transporteRepository.findById(id).get();
-			_Transporte.setTipoTransporte(transporte.getTipoTransporte());
-			_Transporte.setCapacidad(transporte.getCapacidad());
-			_Transporte.setHonorarios(transporte.getHonorarios());
+			if(!transporte.getTipoTransporte().isEmpty()) {
+				_Transporte.setTipoTransporte(transporte.getTipoTransporte());
+			}
+			if(!transporte.getCapacidad().isEmpty()) {
+				_Transporte.setCapacidad(transporte.getCapacidad());
+			}
+			if(transporte.getHonorarios()!=null) {
+				_Transporte.setHonorarios(transporte.getHonorarios());
+			}
 			return transporteRepository.save(_Transporte); 
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al actualizar Transporte.");

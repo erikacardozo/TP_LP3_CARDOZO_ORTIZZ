@@ -8,5 +8,4 @@ import py.edu.uc.lp3.domain.Presupuesto;
 
 public interface GenerarPresupuestoRepository extends PagingAndSortingRepository<Presupuesto, Long> {
 
-
 }
