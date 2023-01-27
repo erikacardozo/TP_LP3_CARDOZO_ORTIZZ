@@ -9,6 +9,8 @@ public class ApiPaths {
 	public static final String ORGANIZACIONES = BASE_API + "/organizaciones";
 	public static final String PRODUCTO = BASE_API + "/producto";
 	public static final String IMPUESTO = BASE_API + "/impuesto";
+	public static final String TRANSPORTE = BASE_API + "/transporte";
+	public static final String PRESUPUESTO = BASE_API + "/generarPresupuesto";
 	
 	public static final String PERSONA = BASE_API + "/persona";
 

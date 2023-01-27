@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import py.edu.uc.lp3.domain.Usuario;
 import py.edu.uc.lp3.repository.UsuarioRepository;
 import py.edu.uc.lp3.service.UsuarioService;
+import py.edu.uc.lp3.utilidades.verificarUsuario;
+import py.edu.uc.lp3exceptions.ExceptionText;
 import py.edu.uc.lp3exceptions.GeneralLP3Exception;
 
 @Service
@@ -38,12 +40,13 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * Retorno: ninguno
 	 */
 	@Override
-	public Usuario save(Usuario usuarios) {
+	public Usuario save(Usuario usuarios) throws ExceptionText {
 		try {
+			verificarUsuario.validarNombre(usuarios);
 			return usuarioRepository.save(usuarios);
 		}catch(Error error) {
 			System.out.println(error);
-			throw new GeneralLP3Exception("Error inesperado al guardar impuesto.");
+			throw new GeneralLP3Exception("Error inesperado al guardar usuario.");
 		}
 		
 	}
@@ -86,7 +89,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * Retorno: usuarioRepository.save(_usuarios): guardar los nuevos datos del usuario
 	 */
 	@Override
-	public Usuario updateUser(Long id,Usuario usuarios) {
+	public Usuario updateUser(Long id,Usuario usuarios) throws ExceptionText {
 		// TODO Auto-generated method stub 
 		 if(usuarioRepository.findById(id).isPresent()) {
 			Usuario _usuarios = usuarioRepository.findById(id).get();
@@ -94,7 +97,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 			_usuarios.setRol(usuarios.getRol());
 			_usuarios.setEmail(usuarios.getEmail());
 			_usuarios.setPasswd(usuarios.getPasswd());
-			
+			verificarUsuario.validarNombre(_usuarios);
 			return usuarioRepository.save(_usuarios); 
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al actualizar usuario.");

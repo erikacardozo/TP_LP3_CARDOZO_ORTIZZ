@@ -5,15 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 @Entity
-public class Usuario implements Serializable{
+public class Usuario{
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
@@ -30,9 +28,7 @@ public class Usuario implements Serializable{
 	}
 	
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
 
 	public Usuario (String userName, String rol, String email, String passwd) {
 		super();

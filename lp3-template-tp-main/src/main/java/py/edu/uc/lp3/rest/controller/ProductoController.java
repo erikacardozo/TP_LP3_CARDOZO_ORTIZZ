@@ -53,8 +53,8 @@ public class ProductoController {
 	/*Llama a la funcion para actualizar o cambiar los datos de un producto
 	 * por su numero de id por metodo PUT
 	 */
-	@PutMapping("/{id}")
-	public ResponseEntity<Producto> updateProduct(@PathVariable("id") long id, @RequestBody Producto producto) {
-		return new ResponseEntity<>(productoService.updateProducto(id, producto),HttpStatus.OK);
+	@PutMapping()
+	public ResponseEntity<Producto> updateProduct(@RequestBody Producto productos) {
+		return new ResponseEntity<>(productoService.updateProducto(productos),HttpStatus.OK);
 	}
 }

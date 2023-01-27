@@ -18,6 +18,7 @@ import py.edu.uc.lp3.constants.ApiPaths;
 
 import py.edu.uc.lp3.domain.Usuario;
 import py.edu.uc.lp3.service.UsuarioService;
+import py.edu.uc.lp3exceptions.ExceptionText;
 
 @RestController
 @RequestMapping(ApiPaths.USUARIO)
@@ -33,7 +34,7 @@ public class UsuarioController {
 	
 	//Llama a la funcion para agregar una usuarios por metodo POST
 	@PostMapping()
-	public Usuario add(@RequestBody Usuario usuarios) {
+	public Usuario add(@RequestBody Usuario usuarios) throws ExceptionText {
 		return usuarioService.save(usuarios);
 	}
 	
@@ -56,7 +57,7 @@ public class UsuarioController {
 	 * por su numero de id por metodo PUT
 	 */
 	@PutMapping("/{id}")
-	  public ResponseEntity<Usuario> updateUser(@PathVariable("id") long id, @RequestBody Usuario usuario) {
+	  public ResponseEntity<Usuario> updateUser(@PathVariable("id") long id, @RequestBody Usuario usuario) throws ExceptionText {
 	    return new ResponseEntity<>(usuarioService.updateUser(id,usuario),HttpStatus.OK);
 	  }
 	
