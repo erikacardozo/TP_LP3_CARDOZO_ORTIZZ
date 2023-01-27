@@ -2,7 +2,7 @@ package py.edu.uc.lp3.domain;
 
 
 public class Despachante extends Usuario{
-	Long honorarios=500000l;
+	Long honorarios=500000l; //Honorario definido para cualquier despacho 
 	
 	
 	public Despachante() {

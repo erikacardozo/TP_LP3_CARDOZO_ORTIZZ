@@ -52,7 +52,6 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 	
 	@Override
 	public List<Presupuesto> save1 (Long id1, Long id2, Presupuesto presupuesto) {
-		//Presupuesto presupuesto = new Presupuesto();
 		
 		/*guardamos presupuesto de 2 producto*/
 		
@@ -78,7 +77,7 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 			
 			Presupuesto presupuesto1 = new Presupuesto();
 			Producto produ1 = null;
-		//List<Presupuesto> presupuestoList = new ArrayList<>();
+	
 			produ1 = produFromBD1.get();
 			Long precio1=produ1.getPrecio();
 			Long cantidad1=produ1.getCantidad();//precioTotal
@@ -94,7 +93,6 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al generar presupuesto.");
 		}
-			//calcularPresupuesto.generarPresupuesto(Despachante despachante,produ.getPrecio(),produ.getCantidad());
 	}
 	
 	
@@ -108,7 +106,6 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 		 * 
 		 * LOS DATOS AGREGADOS EN JSON BODY SON EL MISMO PARA LOS 3*/
 		
-		//Presupuesto presupuesto = new Presupuesto();
 		
 		Despachante despachante = new Despachante();
 		Producto produ = null;
@@ -138,7 +135,7 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 			Float imp1=presupuesto.getTipoImpuestoPorcentaje();// impuesto
 			Long Honorarios2=despachante.getHonorarios();//total honorarios
 			Long Honorarios3=presupuesto.getHonorariosTransporte();
-		//	Float subtotal = resul+imp;//total+impuesto
+		
 			Float TOTAL1=(calcularPresupuesto.generarPresupuesto(precio1,cantidad1,imp1,Honorarios2,Honorarios3));
 			presupuesto1.setFinall(TOTAL1); //total
 			presupuesto1.setTipoImpuestoPorcentaje(presupuesto.getTipoImpuestoPorcentaje());
@@ -168,7 +165,10 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 		
 	}
 	
-	/*para listar los presupuestos*/
+	/*
+	 * Funcion para obtener una lista de todos los presupuestos Parametros: ninguno
+	 * Retorno: List<Presupuesto> presupuesto : la lista de todos los presupuestos
+	 */
 	@Override
 	public List<Presupuesto> findAll() {
 		List<Presupuesto> presupuesto = new ArrayList<>();
@@ -192,7 +192,7 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 
 	/*para actualizar un presupuesto y genere uno nuevo
 	 * 
-	 * id enviado en el path ES PRODUCTO
+	 * id enviado en el path ES de PRODUCTO
 	 * 
 	 * ID enviado en jsonBody el presupuestos a actualizar*/
 	
@@ -228,9 +228,6 @@ public class GenerarPresupuestoImpl implements GenerarPresupuestoService{
 			}else {
 				throw new GeneralLP3Exception("Error inesperado al actualizar presupuesto.");
 			}
-			/*if(!productos.getOrigen().isEmpty()) {
-				Existente.setOrigen(productos.getOrigen());
-			}*/
 		}else {
 			throw new GeneralLP3Exception("Error inesperado al actualizar presupuesto.");
 		}

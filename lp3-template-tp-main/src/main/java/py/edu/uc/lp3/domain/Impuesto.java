@@ -12,8 +12,8 @@ public class Impuesto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
 	public Long id; 
-	private String nombre;
-	public Float porcentaje;
+	private String nombre; //nombre del impuesto (IVA, ARANCEL.ETC)
+	public Float porcentaje; //cual es el porcentaje a calcular de ese impuesto
 	
 	
 	public Impuesto() {

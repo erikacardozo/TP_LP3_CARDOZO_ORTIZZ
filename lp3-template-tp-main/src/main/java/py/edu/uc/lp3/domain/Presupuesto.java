@@ -14,9 +14,10 @@ public class Presupuesto {
 	@Column(unique = true, nullable = false)
 	
 	private Long id;
-	private Long honorariosTransporte;
-	private Float tipoImpuestoPorcentaje;
-	private Float finall;
+	private Long honorariosTransporte; /*precio por servicio transporte respecto a su peso
+	y tipo de transporte*/
+	private Float tipoImpuestoPorcentaje;//el porcentaje del impuesto (IVA,ARANCEL,IRP,ETC)
+	private Float finall; //monto final a pagar 
 	
 	public Presupuesto() {
 		// TODO Auto-generated constructor stub

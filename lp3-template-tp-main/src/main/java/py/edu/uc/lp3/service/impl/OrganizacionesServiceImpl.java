@@ -67,7 +67,7 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 	}
 	/*
 	 * Funcion para actualizar una organizacion con persistencia
-	 * Parametros: Long IDOrganizacion : el id de la organizacion que actualizaremos
+	 * Parametros: Long IDOrg : el id de la organizacion que actualizaremos
 	 * Organizaciones organizaciones : es la organizacion que guardaremos 
 	 * Retorno: organizacionesRepository.save(_organizaciones): guardar los nuevos datos
 	 *  de la organizacion
@@ -89,7 +89,7 @@ public class OrganizacionesServiceImpl implements OrganizacionesService {
 		}
 	}
 	/* Funcion para eliminar una organizacion
-	 * Parametros: Long IDOrganizacion: el id de la organizacion que eliminaremos  
+	 * Parametros: Long IDOrg: el id de la organizacion que eliminaremos  
 	 * Retorno: ninguno
 	 */
 	@Override

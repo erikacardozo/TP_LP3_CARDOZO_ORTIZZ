@@ -17,50 +17,20 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
-	private Long id; //cod que tienen las mercaderias
-	private Long cantidad;
-	private Long precio;
-	private Float peso;
-	private String tipoProducto;
+	private Long id; 
+	private Long cantidad; //cantidad del producto
+	private Long precio; //precio por unidad del producto
+	private Float peso; //peso en kg de los productos
+	private String tipoProducto; //tipo de producto (IMPRESO,TEXTIL,MATERIALES PARA IMPRESION,ETC)
 	private String origen; // donde se creo, asi se sabe a que convenio pertenece
-	private String destino;
+	private String destino; //a donde va, asi se sabe a que convenio pertenece
 	
-	/*@OneToMany
-	@PrimaryKeyJoinColumn(referencedColumnName = "id")
-	public List<Impuesto> impuestoo;
-	
-	@OneToMany
-	@PrimaryKeyJoinColumn(referencedColumnName = "id")
-	private List<Transporte> transportee;
-	
-	
-
-	public List<Transporte> getTransportee() {
-		return transportee;
-	}
-
-
-	public void setTransportee(List<Transporte> transportee) {
-		this.transportee = transportee;
-	}
-
-
-	public List<Impuesto> getImpuestoo() {
-		return impuestoo;
-	}
-
-
-	public void setImpuestoo(List<Impuesto> impuestoo) {
-		this.impuestoo = impuestoo;
-		//System.out.printf("nombre ok %f",impuestoo.porcentaje);
-	}*/
 	
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*public Producto(Long id, Long cantidad, Long precio, Float peso, String tipoProducto, String origen, String destino,
-			float impuestoo) {
+	public Producto(Long id, Long cantidad, Long precio, Float peso, String tipoProducto, String origen, String destino) {
 		super();
 		this.id = id;
 		this.cantidad = cantidad;
@@ -69,8 +39,7 @@ public class Producto {
 		this.tipoProducto = tipoProducto;
 		this.origen = origen;
 		this.destino = destino;
-		this.impuestoo = impuestoo;
-	}*/
+	}
 
 	public Long getId() {
 		return id;

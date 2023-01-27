@@ -15,12 +15,11 @@ public class Usuario{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
-	//todos se van a llamar id punto
-	private Long id;
-	protected String userName;
-	private String rol;
-	private String email;
-	protected String passwd;
+	private Long id; 
+	protected String userName; //nombre de usuario, puede contener nros
+	private String rol; //que tipo de rol tiene (Administrador,Despachante,Transportista,Auditor)
+	private String email; //email del usuario
+	protected String passwd; //contraseña del usuario
 	
 	
 	public Usuario() {

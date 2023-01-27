@@ -17,8 +17,9 @@ public class Organizaciones implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
 	private Long IDOrg;
-	private String tipoDeOrganizacion;
-	private String descripcion;
+	private String tipoDeOrganizacion; /*nombre de la organizacion (agencias despachantes, 
+	transportistas, auditores, etc)*/
+	private String descripcion; /* descripcion de las organizaciones, datos adicionales*/
 	public Organizaciones() {
 		// TODO Auto-generated constructor stub
 	}
