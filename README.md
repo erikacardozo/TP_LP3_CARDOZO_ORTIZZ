@@ -47,8 +47,10 @@
 
 ### Generar Presupuesto
 *	*Listar Presupuesto:* Request de tipo GET y se agrega /generarPresupuesto/ a la direccion principal. Lista todos los presupuestos que se crearon.
-*	*Generar Presupuesto:* Request de tipo POST y se agrega /generarPresupuesto/{id} (/{id}/{id} ) a la direccion principal. Utiliza hasta tres id de producto en la direccion. Los datos se insertan en formato JSON.
-*	*Actualizar Presupuesto por id:* Request de tipo PUT y se agrega /generarPresupuesto/{id}  a la direccion principal. Los datos se insertan en formato JSON.
+*	*Generar Presupuesto:* Request de tipo POST y se agrega /Presupuesto/producto/{idProducto} para generar presupuesto de un producto.
+/Presupuesto/producto/{id}/{id} para generar 2 presupuestos y /Presupuesto/producto/{id}/{id}/{id} para generar 3 presupuestos de 3 productos,
+Utiliza hasta tres id de producto en la direccion. Los datos se insertan en formato JSON.
+*	*Actualizar Presupuesto por id:* Request de tipo PUT y se agrega /Presupuesto/producto/{id}  a la direccion principal. Los datos se insertan en formato JSON.
 *	*Eliminar impuestos por id:* Request de tipo GET y se agrega / generarPresupuesto/{id} a la direccion principal para eliminar todos los datos de ese usuario con ese id.
 
 
