@@ -60,3 +60,4 @@ Utiliza hasta tres id de producto en la direccion. Los datos se insertan en form
 *	*Eliminar impuestos por id:* Request de tipo GET y se agrega / generarPresupuesto/{id} a la direccion principal para eliminar todos los datos de ese usuario con ese id.
 
 
+### Autores: Erika Cardozo y Ethel Ortiz ###
