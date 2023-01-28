@@ -43,7 +43,13 @@
 *	*Listar transportes:* Request de tipo GET y se agrega /transporte/ a la direccion principal. Lista todos los transportes que se agregaron mostrando todos sus datos.
 *	*Agregar transportes:* Request de tipo POST y se agrega /transporte a la direccion principal. Los datos se insertan en formato JSON.
 *	*Actualizar transportes por id:* Request de tipo PUT y se agrega / transporte/{id}  a la direccion principal. Los datos se insertan en formato JSON.
-*	*Eliminar transportes por id:* Request de tipo GET y se agrega /impuesto/{id}   a la direccion principal para eliminar todos los datos de ese transporte  con ese id.
+*	*Eliminar transportes por id:* Request de tipo GET y se agrega /transporte/{id}   a la direccion principal para eliminar todos los datos de ese transporte  con ese id.
+
+### Almacenamiento
+*	*Listar almacenamiento:* Request de tipo GET y se agrega /almacenamiento/ a la direccion principal. Lista todos los almacenamientos que se agregaron mostrando todos sus datos.
+*	*Agregar almacenamiento:* Request de tipo POST y se agrega /almacenamiento a la direccion principal. Los datos se insertan en formato JSON.
+*	*Actualizar almacenamiento por id:* Request de tipo PUT y se agrega /almacenamiento/{id}  a la direccion principal. Los datos se insertan en formato JSON.
+*	*Eliminar almacenamiento por id:* Request de tipo GET y se agrega /almacenamiento/{id}   a la direccion principal para eliminar todos los datos del almacenamiento con ese id.
 
 ### Generar Presupuesto
 *	*Listar Presupuesto:* Request de tipo GET y se agrega /generarPresupuesto/ a la direccion principal. Lista todos los presupuestos que se crearon.
