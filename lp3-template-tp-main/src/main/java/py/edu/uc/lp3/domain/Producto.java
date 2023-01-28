@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="tablaProducto")
+@Table(name="newProducto")
 public class Producto {
 
 	@Id
@@ -22,8 +22,6 @@ public class Producto {
 	private Long precio; //precio por unidad del producto
 	private Float peso; //peso en kg de los productos
 	private String tipoProducto; //tipo de producto (IMPRESO,TEXTIL,MATERIALES PARA IMPRESION,ETC)
-	private String origen; // donde se creo, asi se sabe a que convenio pertenece
-	private String destino; //a donde va, asi se sabe a que convenio pertenece
 	
 	
 	public Producto() {
@@ -37,8 +35,7 @@ public class Producto {
 		this.precio = precio;
 		this.peso = peso;
 		this.tipoProducto = tipoProducto;
-		this.origen = origen;
-		this.destino = destino;
+
 	}
 
 	public Long getId() {
@@ -97,32 +94,6 @@ public class Producto {
 	public void setTipoProducto(String tipoProducto) {
 		this.tipoProducto = tipoProducto;
 	}
-
-
-
-	public String getOrigen() {
-		return origen;
-	}
-
-
-
-	public void setOrigen(String origen) {
-		this.origen = origen;
-	}
-
-
-
-	public String getDestino() {
-		return destino;
-	}
-
-
-
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-
-
 
 
 

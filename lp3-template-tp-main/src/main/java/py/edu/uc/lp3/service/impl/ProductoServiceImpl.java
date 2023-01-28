@@ -92,12 +92,6 @@ public class ProductoServiceImpl implements ProductoService{
 			if(!productos.getTipoProducto().isEmpty()) {
 				Existente.setTipoProducto(productos.getTipoProducto());
 			}
-			if(!productos.getOrigen().isEmpty()) {
-				Existente.setOrigen(productos.getOrigen());
-			}
-			if(!productos.getDestino().isEmpty()) {
-				Existente.setDestino(productos.getDestino());
-			}
 	
 			return productoRepository.save(Existente);
 		}else {

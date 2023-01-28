@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="new")
+@Table(name="transpNEW")
 public class Transporte {
 	
 	@Id

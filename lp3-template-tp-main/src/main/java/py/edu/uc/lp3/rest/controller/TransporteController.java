@@ -48,7 +48,7 @@ public class TransporteController {
 	public void deleteTransportById(@PathVariable long id) {
 		transporteService.deleteTransporteById(id);
 	}
-	/*Llama a la funcion para actualizar los datos de un impuesto 
+	/*Llama a la funcion para actualizar los datos de un transporte 
 	 * por su numero de id por metodo PUT
 	 */
 	@PutMapping("/{id}")

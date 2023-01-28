@@ -8,12 +8,12 @@ import py.edu.uc.lp3exceptions.GeneralLP3Exception;
  * honoarios transporte */
 
 public class calcularPresupuesto {
-	public static Float generarPresupuesto(Long precio, Long cantidad, Float imp,Long Honorarios, Long Honorarios1) {
+	public static Float generarPresupuesto(Long precio, Long cantidad, Float imp,Long Honorarios, Long Honorarios1, Long almacenamiento) {
 			try {
 				float FIN;
 				Long resul=precio*cantidad;//precioTotal
 				Float impuesto=resul*imp;// impuesto
-				Long sumaHonorarios=Honorarios+Honorarios1;//total honorarios
+				Long sumaHonorarios=Honorarios+Honorarios1+almacenamiento;//total honorarios
 				FIN = resul+impuesto+sumaHonorarios;//total+impuesto
 				return FIN;
 			}catch(Error error) {
